@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortofolioR_</title>
+    <meta name="description" content="Portofolio Pribadi Mahasiswa Teknik Informatika Universitas Nurul Jadid">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+    <!-- Tailwind CSS (CDN because Node.js is unavailable) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        darknodes: '#0a0a0a',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="text-brand-400">R</span>Tech
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home"
+                    class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors">Home</a>
+                <a href="#about" class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors">About
+                    Me</a>
+                <a href="#portfolio"
+                    class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors">Project</a>
+                <a href="#contact"
+                    class="px-5 py-2.5 bg-white/5 border border-white/10 hover:bg-brand-500 hover:border-brand-500 rounded-full text-sm font-medium text-white transition-all duration-300">Contact
+                    Me</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <a id="burger-togler" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </a>
+        </div>
+        <div class="navburger border-l border-indigo-500" id="hamburger-menu">
+            <a href="#home" class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors block px-4 py-2">Home</a>
+            <a href="#about" class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors block px-4 py-2">About
+                Me</a>
+            <a href="#portfolio"
+                class="text-sm font-medium text-gray-300 hover:text-brand-400 transition-colors block px-4 py-2">Project</a>
+            <a href="#contact"
+                class="ml-2 px-5 py-2.5 bg-white/5 border border-white/10 hover:bg-brand-500 hover:border-brand-500 rounded-full text-sm font-medium text-white transition-all duration-300 block px-4 py-2">Contact
+                Me</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <canvas id="hero-canvas"></canvas>
+
+        <!-- Overlay Gradient for better text readability -->
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div
+                class="inline-block mb-4 px-4 py-1.5 rounded-full border border-brand-500/30 bg-brand-500/10 backdrop-blur-sm animate-float">
+                <span class="text-brand-400 text-sm font-medium tracking-wide uppercase">Informatics Engineering
+                    Student</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Mastering the <br>
+                <span class="gradient-text">World of Technology</span>
+            </h1>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#about"
+                    class="group relative px-8 py-3.5 bg-brand-600 rounded-full font-semibold text-white overflow-hidden shadow-lg shadow-brand-500/25 transition-all hover:scale-105 hover:shadow-brand-500/50">
+                    <span class="relative z-10">Explore My Journey</span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                </a>
+                <a href="#contact"
+                    class="px-8 py-3.5 rounded-full font-semibold text-white border border-white/10 hover:bg-white/5 transition-all hover:border-white/30">
+                    Let's Connect
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative bg-[#0a0a0a]">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal relative">
+                    <!-- Decor elements -->
+                    <div class="absolute -top-10 -left-10 w-64 h-64 bg-brand-500/20 rounded-full blur-3xl filter"></div>
+                    <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-violet-500/20 rounded-full blur-3xl filter">
+                    </div>
+
+                    <div
+                        class="relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 aspect-[4/5] group">
+                        <!-- Placeholder for user image -->
+                        <img src="asset/img/me.jpg" alt="Profile of Student"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100">
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-brand-400 uppercase mb-3">About Me</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white">Passion dalam Kode & <span
+                            class="gradient-text">Inovasi</span></h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Sebagai mahasiswa Teknik Informatika di Universitas Nurul Jadid, saya memiliki ketertarikan
+                        mendalam pada pengembangan perangkat lunak dan desain antarmuka.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        Misi saya adalah menggabungkan fungsionalitas yang kuat dengan estetika visual yang menawan.
+                        Saya terus belajar teknologi terbaru seperti JavaScript, CSS modern, dan framework lainnya untuk
+                        tetap relevan di industri yang serba cepat ini.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div
+                            class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-brand-500/30 transition-colors">
+                            <h4 class="text-2xl font-bold text-white mb-1">-1</h4>
+                            <p class="text-sm text-gray-500">Years Learning</p>
+                        </div>
+                        <div
+                            class="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-brand-500/30 transition-colors">
+                            <h4 class="text-2xl font-bold text-white mb-1">10+</h4>
+                            <p class="text-sm text-gray-500">Projects Built</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Skills Section (Optional but good for portfolio) -->
+    <section class="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f0f]">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl font-bold mb-4">Tech Stack & <span
+                            class="gradient-text">Skills</span></h2>
+                <p class="text-gray-400">Teknologi yang saya gunakan untuk membangun masa depan.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Skill Item 1 -->
+                <div
+                    class="reveal p-6 rounded-2xl bg-[#111] border border-white/5 hover:border-brand-500/50 hover:bg-[#151515] transition-all group text-center">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-500 group-hover:scale-110 transition-transform">
+                        <span class="font-bold"><i class="devicon-html5-plain colored"></i></span>
+                    </div>
+                    <h3 class="font-semibold text-white">HTML</h3>
+                </div>
+                <!-- Skill Item 2 -->
+                <div class="reveal p-6 rounded-2xl bg-[#111] border border-white/5 hover:border-brand-500/50 hover:bg-[#151515] transition-all group text-center"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
+                        <span class="font-bold"><i class="devicon-css3-plain colored"></i></span>
+                    </div>
+                    <h3 class="font-semibold text-white">CSS3</h3>
+                </div>
+                <!-- Skill Item 3 -->
+                <div class="reveal p-6 rounded-2xl bg-[#111] border border-white/5 hover:border-brand-500/50 hover:bg-[#151515] transition-all group text-center"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 bg-cyan-500/10 rounded-full flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                        <span class="font-bold"><i class="devicon-tailwindcss-original colored"></i></span>
+                    </div>
+                    <h3 class="font-semibold text-white">Tailwind</h3>
+                </div>
+                <!-- Skill Item 4 -->
+                <div class="reveal p-6 rounded-2xl bg-[#111] border border-white/5 hover:border-brand-500/50 hover:bg-[#151515] transition-all group text-center"
+                    style="transition-delay: 300ms;">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 bg-green-500/10 rounded-full flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
+                        <span class="font-bold"><i class="devicon-bootstrap-plain colored"></i></span>
+                    </div>
+                    <h3 class="font-semibold text-white">Bootstrap</h3>
+                </div>
+                <div class="reveal p-6 rounded-2xl bg-[#111] border border-white/5 hover:border-brand-500/50 hover:bg-[#151515] transition-all group text-center"
+                    style="transition-delay: 300ms;">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 bg-green-500/10 rounded-full flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
+                        <span class="font-bold"><i class="devicon-javascript-plain colored"></i></span>
+                    </div>
+                    <h3 class="font-semibold text-white">JavaScript</h3>
+                </div>
+                <div class="reveal p-6 rounded-2xl bg-[#111] border border-white/5 hover:border-brand-500/50 hover:bg-[#151515] transition-all group text-center"
+                    style="transition-delay: 300ms;">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 bg-green-500/10 rounded-full flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
+                        <span class="font-bold"><i class="devicon-python-plain colored"></i></span>
+                    </div>
+                    <h3 class="font-semibold text-white">Python</h3>
+                </div>
+                <div class="reveal p-6 rounded-2xl bg-[#111] border border-white/5 hover:border-brand-500/50 hover:bg-[#151515] transition-all group text-center"
+                    style="transition-delay: 300ms;">
+                    <div
+                        class="w-12 h-12 mx-auto mb-4 bg-green-500/10 rounded-full flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
+                        <span class="font-bold"><i class="devicon-alpinejs-original"></i></span>
+                    </div>
+                    <h3 class="font-semibold text-white">Alpine JS</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Projects Section -->
+    <section id="portfolio" class="py-24 bg-[#0a0a0a]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-16 reveal">
+                <div class="max-w-xl">
+                    <h2 class="text-sm font-bold tracking-widest text-brand-400 uppercase mb-3">My Works</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Featured <span
+                            class="gradient-text">Projects</span></h3>
+                </div>
+                <a href="#"
+                    class="hidden md:inline-flex items-center gap-2 text-sm font-medium text-white border-b border-brand-500 pb-1 hover:text-brand-400 transition-colors mt-6 md:mt-0">
+                    Lihat Semua Project
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div
+                    class="reveal group relative bg-[#111] border border-white/5 rounded-2xl overflow-hidden hover:border-brand-500/30 transition-all">
+                    <div
+                        class="h-48 bg-gradient-to-br from-brand-900/50 to-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                        <img src="asset/img/gepk.jpg" alt="">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3 text-xs font-semibold text-brand-400 uppercase tracking-wider">
+                            <span>Css</span>
+                            <span>•</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                            Geprek Bo.oZz</h4>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Website pemesanan online yang terhubung
+                            dengan WhatsApp.</p>
+                        <a href="https://rizqimln.github.io/Geprek.BooZz/"
+                            class="inline-flex items-center text-sm font-medium text-white hover:text-brand-400 transition-colors">
+                            View Case Study <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="reveal group relative bg-[#111] border border-white/5 rounded-2xl overflow-hidden hover:border-brand-500/30 transition-all"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="h-48 bg-gradient-to-br from-purple-900/50 to-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                        <img src="asset/img/casul.jpg" alt="">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3 text-xs font-semibold text-purple-400 uppercase tracking-wider">
+                            <span>Css</span>
+                            <span>•</span>
+                            <span>JavaScript</span>
+                            <span>•</span>
+                            <span>Alpine Js</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                            CasualBy</h4>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Toko online yang menual brand ADIDAS dengan
+                            harga yang terjangkau.</p>
+                        <a href="https://rizqimln.github.io/CasualBy.com/"
+                            class="inline-flex items-center text-sm font-medium text-white hover:text-purple-400 transition-colors">
+                            View Case Study <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="reveal group relative bg-[#111] border border-white/5 rounded-2xl overflow-hidden hover:border-brand-500/30 transition-all"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="h-48 bg-gradient-to-br from-green-900/50 to-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                        <img src="asset/img/kop.jpg" alt="">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3 text-xs font-semibold text-green-400 uppercase tracking-wider">
+                            <span>Css</span>
+                            <span>•</span>
+                            <span>JavaScript</span>
+                            <span>•</span>
+                            <span>Alpine JS</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
+                            Kopnaga99</h4>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Sebuah Website pemesanan disebuah cafe yang
+                            terhubung dengan kasir.</p>
+                        <a href="https://rizqimln.github.io/Kopinaga99.id/"
+                            class="inline-flex items-center text-sm font-medium text-white hover:text-green-400 transition-colors">
+                            View Case Study <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6">
+            <div
+                class="max-w-4xl mx-auto rounded-3xl bg-[#111] border border-white/5 overflow-hidden shadow-2xl reveal">
+                <div class="grid md:grid-cols-2">
+                    <div
+                        class="p-10 md:p-12 bg-gradient-to-br from-brand-900/40 to-black flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Let'<span
+                            class="gradient-text">s</span> work <span
+                            class="gradient-text">together</span></h3>
+                            <p class="text-gray-400 text-sm mb-8">Punya proyek menarik? Mari berdiskusi.</p>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 text-gray-300">
+                                    <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">📧
+                                    </div>
+                                    <span>riskyff783@gmail.com</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-gray-300">
+                                    <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">📍
+                                    </div>
+                                    <span>Probolinggo, East Java </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 flex gap-4">
+                            <!-- Social Icons -->
+                            <a href="https://www.instagram.com/kkymlna?igsh=eWltcnMzcmU4a2xu"
+                                class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 text-white flex items-center justify-center transition-all"><i class="bi bi-instagram"></i></a>
+                            <a href="https://github.com/Rizqimln"
+                                class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 text-white flex items-center justify-center transition-all"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="p-10 md:p-12">
+                        <form class="space-y-6" action="https://formspree.io/f/xqarveqw" method="post">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-brand-400 mb-2">Nama</label>
+                                <input type="text" name="Name"
+                                    class="w-full bg-[#0a0a0a] border border-indigo-500 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
+                                    placeholder="___________">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-brand-400 mb-2">Email</label>
+                                <input type="email" name="Email"
+                                    class="w-full bg-[#0a0a0a] border border-indigo-500 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
+                                    placeholder="____@gmail.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-brand-400 mb-2">Pesan</label>
+                                <textarea rows="4" name="Pesan"
+                                    class="w-full bg-[#0a0a0a] border border-indigo-500 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
+                                    placeholder="___________."></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full py-4 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-lg transition-all transform active:scale-95">
+                                Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5 bg-[#050505]">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-500 text-sm">© 2025 RIZQI MAULANA . All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="java/script.js"></script>
+    <script src="java/scroll.js"></script>
+</body>
+
+</html>
